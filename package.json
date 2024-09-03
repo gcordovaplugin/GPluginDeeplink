@@ -1,0 +1,25 @@
+{
+  "name": "cn.yingzhichu.cordova.gdeeplink",
+  "version": "0.0.1",
+  "description": "",
+  "cordova": {
+    "id": "cn.yingzhichu.cordova.gdeeplink",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcordovaplugin/GPluginDeeplink.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gcordovaplugin/GPluginDeeplink/issues"
+  },
+  "homepage": "https://github.com/gcordovaplugin/GPluginDeeplink#readme"
+}
