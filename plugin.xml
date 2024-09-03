@@ -4,13 +4,31 @@
     <js-module name="GDeeplink" src="www/GDeeplink.js">
         <clobbers target="cordova.plugins.GDeeplink" />
     </js-module>
+    <preference name="URL_SCHEME" />
+    <preference name="DEEPLINK_SCHEME" default="https" />
+    <preference name="DEEPLINK_HOST" default="" />
     <platform name="android">
+        <preference name="ANDROID_PATH_PREFIX" default="/" />
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="GDeeplink">
                 <param name="android-package" value="cn.yingzhichu.cordova.gdeeplink.GDeeplink" />
+                <param name="onload" value="true" />
             </feature>
         </config-file>
-        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="$URL_SCHEME" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="$DEEPLINK_SCHEME" android:host="$DEEPLINK_HOST" android:pathPrefix="$ANDROID_PATH_PREFIX" />
+            </intent-filter>
+        </config-file>
         <source-file src="src/android/GDeeplink.java" target-dir="src/cn/yingzhichu/cordova/gdeeplink/GDeeplink" />
     </platform>
 </plugin>
